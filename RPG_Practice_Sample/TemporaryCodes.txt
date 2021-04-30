@@ -1,0 +1,72 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+//
+//#pragma once
+//
+//#include "CoreMinimal.h"
+//#include "BehaviorTree/Tasks/BTTask_BlackboardBase.h"
+//#include "MyBTTask_FindTargetPointLocation.generated.h"
+//
+///**
+// * 실습 및 사용 불가
+// */
+//UCLASS()
+//class SINGLERPG_API UMyBTTask_FindTargetPointLocation : public UBTTask_BlackboardBase
+//{
+//	GENERATED_BODY()
+//	
+//public:
+//	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* Node) override;
+//};
+
+
+
+
+///**
+// * 실습 및 사용 불가
+// */
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+//#include "MyBTTask_FindTargetPointLocation.h"
+//#include "BehaviorTree/BTNode.h"
+//#include "BehaviorTree/BehaviorTreeComponent.h"
+//#include "BehaviorTree/BlackboardComponent.h"
+//#include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
+//#include "NavigationSystem.h"
+//#include "Engine.h"
+//#include "GriffonAIController.h"
+//#include "BotTargetPoint.h"
+//
+//EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
+//{
+//	AGriffonAIController* MyController = Cast<AGriffonAIController>(OwnerComp.GetAIOwner());
+//
+//	if (MyController == nullptr)
+//	{
+//		return EBTNodeResult::Failed;
+//	}
+//
+//	AActor* NewTargetPoint = nullptr; // bot target point를 찾게 되면 설정될 변수.
+//
+//	// 특정 액터를 찾아 배열에 담는 방법.
+//	TArray<AActor*> AllTargetPoints;
+//	UGameplayStatics::GetAllActorsOfClass(MyController, ABotTargetPoint::StaticClass(), AllTargetPoints);
+//
+//	if (AllTargetPoints.Num() == 0) // bot target point를 찾아봤는데 존재하지 않을경우.
+//	{
+//		return EBTNodeResult::Failed;
+//	}
+//
+//	// bot target point 중 하나를 랜덤으로 뽑아 타겟포인트로 지정해줌. 0 ~ (갯수 - 1) 인덱스까지 조사.
+//	// 만약 타겟 포인트가 2곳이면 두 곳을 왔다갔다 할 것임.
+//	NewTargetPoint = AllTargetPoints[FMath::RandRange(0, AllTargetPoints.Num() - 1)];
+//
+//	if (NewTargetPoint)
+//	{
+//		// 실습 불가 BlackboardKey.GetSelectedKey() 가 존재하지 않음. => 직접 명명해서 사용할 수는 있을 듯.
+//		//OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Object>(, NewTargetPoint);
+//		return EBTNodeResult::Succeeded;
+//	}
+//
+//	return EBTNodeResult::Failed;
+//}
